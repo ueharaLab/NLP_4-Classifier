@@ -1,4 +1,5 @@
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
 from tokenizer import tokenize  # <1>
 import codecs
@@ -20,6 +21,7 @@ for text in tsukurepo_texts:
 
 
 
+#vectorizer = TfidfVectorizer(tokenizer=tokenize)  # <2>
 vectorizer = CountVectorizer(tokenizer=tokenize)  # <2>
 vec=vectorizer.fit(texts_list)  # <3>
 bow = vectorizer.transform(texts_list)  # <4>
